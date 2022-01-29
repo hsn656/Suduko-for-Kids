@@ -2,6 +2,7 @@ import { Item } from "./itemModule.js"
 
 let boardContainer = document.getElementById("boardContainer");
 let selectionContainer = document.getElementById("selectionContainer");
+document.getElementById("userName").innerHTML=`welcom ${localStorage.getItem("name")}`;
 
 let board = [new Array(), new Array(), new Array(), new Array()];
 
