@@ -69,11 +69,15 @@ function renderBoard(board) {
                 <img  id="img-${i}-${j}" src="${board[i][j].Src}" data-correctId="${board[i][j].Id}" >
             </div>
             `
-
+            
             let img = document.getElementById(`img-${i}-${j}`);
+            let div1 = document.getElementById(`item-${i}-${j}`);
             img.style.visibility = "hidden"
             if (board[i][j].Id == randomsArr[i] + 1)
-                img.style.visibility = ""
+            {
+                img.style.visibility = "";
+            }
+               
         }
     }
 }
@@ -90,6 +94,8 @@ function generateRandoms(length) {
 
     return randomsArr;
 }
+
+
 
 //#endregion
 
