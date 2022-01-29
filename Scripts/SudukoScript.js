@@ -1,4 +1,4 @@
-import {Item} from "./itemModule.js"
+import { Item } from "./itemModule.js"
 
 let boardContainer = document.getElementById("boardContainer");
 let selectionContainer = document.getElementById("selectionContainer");
@@ -7,14 +7,15 @@ document.getElementById("userName").innerHTML=`welcom ${localStorage.getItem("na
 let board = [new Array(), new Array(), new Array(), new Array()];
 
 let easySudukoBuilder = [[0, 1, 2, 3],
-                        [2, 3, 1, 0],
-                        [1, 0, 3, 2],
-                        [3, 2, 0, 1]];
+[2, 3, 1, 0],
+[1, 0, 3, 2],
+[3, 2, 0, 1]];
 
 let items = [new Item(1),
-            new Item(2),
-            new Item(3),
-            new Item(4)];
+new Item(2),
+new Item(3),
+new Item(4)];
+
 
 // starting point
 init();
@@ -90,7 +91,6 @@ function generateRandoms(length) {
 
     return randomsArr;
 }
-
 
 //#endregion
 
