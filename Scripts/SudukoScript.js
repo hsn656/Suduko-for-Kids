@@ -10,12 +10,12 @@ let easySudukoBuilder = [[0, 1, 2, 3],
                         [1, 0, 3, 2],
                         [3, 2, 0, 1]];
 
-let items = [new Item(1, "./images/1/1.png"),
-new Item(2, "./images/1/2.png"),
-new Item(3, "./images/1/3.png"),
-new Item(4, "./images/1/4.png")];
+let items = [new Item(1),
+            new Item(2),
+            new Item(3),
+            new Item(4)];
 
-
+// starting point
 init();
 
 //#region Functions

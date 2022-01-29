@@ -1,9 +1,9 @@
 export class Item {
     #id
     #src
-    constructor(id, src) {
-        this.#id = id;
-        this.#src = src;
+    constructor(id) {
+        this.#id = id;    
+        this.#src = `./images/Groups/1/${id}.png`;
     }
 
     //#region getters & setters
