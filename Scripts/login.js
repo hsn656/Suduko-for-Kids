@@ -21,5 +21,5 @@ document.getElementById("login").addEventListener("click", function () {
     }
     localStorage.setItem("name", document.getElementById("name").value);
 
-    //location.assign("");
+    location.assign("groupPage.html");
 });
