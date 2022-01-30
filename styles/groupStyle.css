@@ -37,6 +37,8 @@ body{
     grid-template-rows: auto auto;
     justify-content: center;
     align-content: center;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
     
 }
   .box img{
