@@ -1,0 +1,52 @@
+body {
+  background-image: url("../images/background");
+  background-color: #cccccc;
+ }
+
+.data-container{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+
+.data-container h2{
+  background-color: hsl(0, 1%, 36%);
+  margin: 10px 20px;
+  padding: 5px;
+  color: white;
+}
+
+.items{
+  width: 40vw;
+  margin: auto;
+  padding: 20px;
+}
+
+.items .line .item{ 
+  margin: 0px 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.board{
+  width: 40vw;
+  background-color: antiquewhite;
+  margin: 0px auto;
+}
+
+.line{
+  display: flex;
+}
+
+.board .line .item{
+  margin: 10px auto;
+  border: 1px solid palevioletred;
+  border-radius: 5px;
+}
+  
+.line img{
+  width: 100px;
+  height: 100px;
+}
+
