@@ -52,3 +52,54 @@ body{
   height: 100px;
 }
 
+#alertx {
+  padding: 20px;
+  position:absolute;
+  background-color: #f44336; 
+  color: white;
+  margin-bottom: 15px;
+  transform: translate(-50%,-50%);
+  top:51%;
+    left:50%;
+    border-radius: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    width:500px;
+    height:250px;
+    display: none;
+
+}
+
+
+
+.bt{
+width:70%;
+display:block;
+margin:5px auto;
+border-radius: 5px;
+height:40px;
+background-color: white;
+cursor:pointer;
+font-size:20px;
+font-family:"Comic Sans MS" ;
+font-weight: bolder;
+border:none;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.bt:hover{
+  background-color: rgb(247, 239, 239);;
+}
+a{
+  text-decoration: none;
+  color: #f44336;
+}
+#finish{
+text-align: center;
+font-family: "Comic Sans MS";
+font-size:3em;
+font-weight: 1000;
+font-variant: small-caps;
+margin-bottom: 30px;
+margin-top:15px;
+}
