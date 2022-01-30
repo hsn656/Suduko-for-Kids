@@ -1,7 +1,9 @@
-body {
-  background-image: url("../images/background");
-  background-color: #cccccc;
- }
+body{
+  margin: 0px auto;
+  background-image: url("../images/2.png");
+  background-position: center;
+  background-size: cover;
+}
 
 .data-container{
   display: flex;

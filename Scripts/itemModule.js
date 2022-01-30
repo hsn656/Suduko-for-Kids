@@ -1,9 +1,11 @@
 export class Item {
     #id
+    #group_id
     #src
-    constructor(id) {
+    constructor(id,group_id) {
         this.#id = id;    
-        this.#src = `./images/Groups/1/${id}.png`;
+        this.#group_id=group_id;
+        this.#src = `./images/Groups/${group_id}/${id}.png`;
     }
 
     //#region getters & setters
@@ -13,6 +15,14 @@ export class Item {
 
     set Id(value) {
         this.#id = value;
+    }
+
+    get group_Id() {
+        return this.#group_id;
+    }
+
+    set group_Id(value) {
+        this.#group_id = value;
     }
 
     get Src() {

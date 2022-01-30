@@ -1,13 +1,10 @@
 body{
     margin: 0px auto;
-}
-#overlay {
-  background-image: url("../images/2.png");
-  height: 1050px;
-  background-position: center;
+    background-image: url("../images/2.png");
+    background-position: center;
   background-size: cover;
-  margin: 0px auto;
 }
+
 
 .Container{
     background-color: antiquewhite;
@@ -20,7 +17,6 @@ body{
     padding-top: 30px ;
     box-sizing: border-box;
     border-radius: 28px;
-    padding: 200px;
     border: solid 2px rgb(226, 150, 213);
     display: grid;
     grid-template-columns: auto auto;
@@ -29,6 +25,8 @@ body{
     align-content: center;
     grid-column-gap: 35px;
     grid-row-gap: 35px;
+    padding: 40px;
+    margin: 30px auto;
 }
 
 .box{
@@ -43,6 +41,7 @@ body{
 }
   .box img{
     border: 2px solid rgb(226, 150, 213);
+    border-radius: 28px;
     box-shadow: 3px 3px 8px 0px rgb(240, 116, 219);
     width: 100px;
     height: 100px;
