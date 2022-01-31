@@ -46,6 +46,10 @@ body{
   border: 1px solid palevioletred;
   border-radius: 5px;
 }
+
+.initialized{
+  background-color: rgba(127, 255, 212, 0.445);
+}
   
 .line img{
   width: 100px;

@@ -15,10 +15,17 @@ function checkIfFinished() {
 
 }
 
-function convertSec(sec) {
-    var min = Math.floor(sec / 60);
-    var seconds = sec % 60;
-    return `${min} : ${seconds}`;
+function convertSec(time) {
+    // var min = Math.floor(sec / 60);
+    // var seconds = sec % 60;
+    // return `${min} : ${seconds}`;
+
+    time = Math.round(time)
+    let minutes = Math.floor(time / 60)
+    let seconds = time - minutes * 60
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    return minutes + ":" + seconds
 }
 
 
@@ -31,24 +38,20 @@ function setTimer() {
         counter++;
         timer.innerHTML = (convertSec(remainTime - counter));
         if (counter == remainTime) {
-
             clearInterval(this.s);
             document.getElementById("alertx").style.display = "block";
             document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
-            document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
-
+            document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });            
         }
         else if (checkIfFinished() == `fall` && checkIfWin() == "winer") {
-
             clearInterval(this.s);
             document.getElementById("alertx").style.display = "block";
             document.getElementById("finish").innerHTML = `You Win  ${localStorage.getItem("name")}`;
             document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
             document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
-
         }
+        update(counter);
     }, 1000);
-
 }
 setTimer();
 
