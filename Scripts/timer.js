@@ -11,17 +11,15 @@ function setTimer() {
         }
         else if (checkIfFinished() == `fall` && checkIfWin() == `winer`) {
             gameEnd("Win");
+            updateHistory(counter,true);
+        }else{
+            updateHistory(counter,false);
         }
+        
     }, 1000);
 
 }
 setTimer();
-
-// function convertSec(sec) {
-//     var min = Math.floor(sec / 60);
-//     var seconds = sec % 60;
-//     return `${min} : ${seconds}`;
-// }
 
 function checkIfFinished() {
     Checked = 0;

@@ -2,11 +2,10 @@ function GetUsersHistory() {
     return JSON.parse((localStorage.getItem("history")));
 }
 
-function update(time) {
+function updateHistory(time,isWin) {
     let usersHistory=GetUsersHistory();
     let name = localStorage.getItem("name");
     let level = localStorage.getItem("level");
-    let isWin = false;
 
     usersHistory[name] = {
         name: name,
@@ -18,7 +17,6 @@ function update(time) {
     let string = JSON.stringify(usersHistory);
 
     localStorage.setItem("history", string);
-    console.log("updated");
 }
 
 function getCurrentHistory(){

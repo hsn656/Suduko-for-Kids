@@ -12,46 +12,18 @@ let easySudukoBuilder = [[0, 1, 2, 3],
 [3, 2, 0, 1]];
 
 let storedGroup=localStorage.getItem('group');
-// console.log(storedGroup);
 
 
 
-let items= refreshItems();
+let items= getItems();
 
-// if(storedGroup == 'group1'){
-//     items = [new Item(1,1),
-//         new Item(2,1),
-//         new Item(3,1),
-//         new Item(4,1)];
-// }
-// else if(storedGroup == "group2"){
-//     items = [new Item(1,2),
-//         new Item(2,2),
-//         new Item(3,2),
-//         new Item(4,2)];
-// }
-
-// else if(storedGroup == "group3"){
-//     items = [new Item(1,3),
-//         new Item(2,3),
-//         new Item(3,3),
-//         new Item(4,3)];
-// }
-
-// else if(storedGroup == "group4"){
-//     items = [new Item(1,4),
-//         new Item(2,4),
-//         new Item(3,4),
-//         new Item(4,4)];
-// }
-
-// starting point
+// entry point
 init();
+
 
 //#region Functions
 
-
-function refreshItems(){
+function getItems(){
     let items=[];
     for (let i = 1; i < 5; i++){
         items.push(new Item(i,storedGroup))
