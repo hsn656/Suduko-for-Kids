@@ -1,3 +1,26 @@
+function setTimer() {
+    let counter = 0;
+    let remainTime = 60;
+    let timer = document.getElementById("timer");
+    timer.innerHTML = (convertSec(remainTime - counter));
+    s = setInterval(function () {
+        counter++;
+        timer.innerHTML = (convertSec(remainTime - counter));
+        if (counter == remainTime) {
+            gameEnd("Lost");
+        }
+        else if (checkIfFinished() == `fall` && checkIfWin() == `winer`) {
+            gameEnd("Win");
+            updateHistory(counter,true);
+        }else{
+            updateHistory(counter,false);
+        }
+        
+    }, 1000);
+
+}
+setTimer();
+
 function checkIfFinished() {
     Checked = 0;
     for (let i = 0; i < 4; i++) {
@@ -15,42 +38,16 @@ function checkIfFinished() {
 
 }
 
-function convertSec(sec) {
-    var min = Math.floor(sec / 60);
-    var seconds = sec % 60;
-    return `${min} : ${seconds}`;
+function convertSec(time) {
+
+    time = Math.round(time)
+    let minutes = Math.floor(time / 60)
+    let seconds = time - minutes * 60
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    return minutes + ":" + seconds
 }
 
-
-function setTimer() {
-    let counter = 0;
-    let remainTime = 60;
-    let timer = document.getElementById("timer");
-    timer.innerHTML = (convertSec(remainTime - counter));
-    s = setInterval(function () {
-        counter++;
-        timer.innerHTML = (convertSec(remainTime - counter));
-        if (counter == remainTime) {
-
-            clearInterval(this.s);
-            document.getElementById("alertx").style.display = "block";
-            document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
-            document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
-
-        }
-        else if (checkIfFinished() == `fall` && checkIfWin() == "winer") {
-
-            clearInterval(this.s);
-            document.getElementById("alertx").style.display = "block";
-            document.getElementById("finish").innerHTML = `You Win  ${localStorage.getItem("name")}`;
-            document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
-            document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
-
-        }
-    }, 1000);
-
-}
-setTimer();
 
 function checkIfWin() {
     let rowCounter = 0;
@@ -75,27 +72,27 @@ function checkIfWin() {
             }
         }
     }
-    if (rowCounter >= 1 && colCounter >= 1)
-        return "loser";
+    if (rowCounter == 0 && colCounter == 0)
+        return `winer`;
     else
-        return "winer";
+        return `loser`;
 
 }
 
 function selectCell(i, j) {
     if (document.getElementById(`img-${i}-${j}`).style.visibility == "")
-        item = document.getElementById(`img-${i}-${j}`).src.slice(21);
+        return document.getElementById(`img-${i}-${j}`).src.slice(21);
     else if (document.getElementById(`item-${i}-${j}`).style.backgroundImage != "")
-        item = document.getElementById(`item-${i}-${j}`).style.backgroundImage.slice(5, -2);
-    return item;
+        return document.getElementById(`item-${i}-${j}`).style.backgroundImage.slice(5, -2);
+
 }
 
-// function gameEnd(value) {
+function gameEnd(value) {
 
-//     clearInterval(this.s);
-//     document.getElementById("alertx").style.display = "block";
-//     document.getElementById("finish").innerHTML = `You ${value}  ${localStorage.getItem("name")}`;
-//     document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
-//     document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
+    clearInterval(this.s);
+    document.getElementById("alertx").style.display = "block";
+    document.getElementById("finish").innerHTML = `You ${value}  ${localStorage.getItem("name")}`;
+    document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
+    document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
 
-// }
+}

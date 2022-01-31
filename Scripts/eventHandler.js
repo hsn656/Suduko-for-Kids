@@ -1,5 +1,4 @@
-import { Item } from "./itemModule.js"
-
+let groupId=localStorage.getItem("group");
 let i = 0;
 let j = 0;
 
@@ -43,17 +42,15 @@ document.onkeydown = function (event) {
     }
 };
 
-let selectedGroup=localStorage.getItem('group').slice(5,6);
-
-
 function selectNum(i, j, id) {
     let img = document.getElementById(`img-${i}-${j}`)
     if (img.style.visibility == "hidden") {
-        document.getElementById(`item-${i}-${j}`).style.backgroundImage = `url(/images/Groups/${selectedGroup}/${id}.png)`;
+
+        document.getElementById(`item-${i}-${j}`).style.backgroundImage = `url(/images/Groups/${groupId}/${id}.png)`;
         document.getElementById(`item-${i}-${j}`).style.backgroundSize = "cover";
     }
 }
-document.onkeypress = function (event) {
+document.addEventListener("keydown",function (event) {
     event = event || window.event;
     switch (event.keyCode) {
         case 49: //number 1
@@ -70,7 +67,7 @@ document.onkeypress = function (event) {
             break;
 
     }
-};
+});
 
 
 
