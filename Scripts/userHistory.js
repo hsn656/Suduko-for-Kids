@@ -1,5 +1,6 @@
 function GetUsersHistory() {
-    return JSON.parse((localStorage.getItem("history")));
+    let result=JSON.parse((localStorage.getItem("history")));
+    return result?result:{};
 }
 
 function updateHistory(time,isWin) {
