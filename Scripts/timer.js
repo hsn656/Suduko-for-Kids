@@ -17,11 +17,11 @@ function setTimer() {
 }
 setTimer();
 
-function convertSec(sec) {
-    var min = Math.floor(sec / 60);
-    var seconds = sec % 60;
-    return `${min} : ${seconds}`;
-}
+// function convertSec(sec) {
+//     var min = Math.floor(sec / 60);
+//     var seconds = sec % 60;
+//     return `${min} : ${seconds}`;
+// }
 
 function checkIfFinished() {
     Checked = 0;
@@ -39,6 +39,17 @@ function checkIfFinished() {
     }
 
 }
+
+function convertSec(time) {
+
+    time = Math.round(time)
+    let minutes = Math.floor(time / 60)
+    let seconds = time - minutes * 60
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    return minutes + ":" + seconds
+}
+
 
 function checkIfWin() {
     let rowCounter = 0;
