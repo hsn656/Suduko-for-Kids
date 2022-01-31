@@ -1,9 +1,10 @@
+import { Item } from "./itemModule.js"
 
 let i = 0;
 let j = 0;
 
 function applyBorder(i, j) {
-    document.getElementById(`item-${i}-${j}`).style.border = "3px solid black";
+    document.getElementById(`item-${i}-${j}`).style.border = "3px solid red";
 }
 
 function deleteBorder(i, j) {
@@ -42,10 +43,13 @@ document.onkeydown = function (event) {
     }
 };
 
+let selectedGroup=localStorage.getItem('group').slice(5,6);
+
+
 function selectNum(i, j, id) {
     let img = document.getElementById(`img-${i}-${j}`)
     if (img.style.visibility == "hidden") {
-        document.getElementById(`item-${i}-${j}`).style.backgroundImage = `url(/images/Groups/1/${id}.png)`;
+        document.getElementById(`item-${i}-${j}`).style.backgroundImage = `url(/images/Groups/${selectedGroup}/${id}.png)`;
         document.getElementById(`item-${i}-${j}`).style.backgroundSize = "cover";
     }
 }
