@@ -1,10 +1,9 @@
-let time = 60;
+let time = level=="level2"?120:60;
 let timer = document.getElementById("timer");
 let timerInterval;
 let counter=0;
 
 function setTimer() {
-    console.log(111);
     timer.innerHTML = convertToSec(time--);
     timerInterval = setInterval(() => {
         if (time>-1) {
