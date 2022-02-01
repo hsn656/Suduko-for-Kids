@@ -1,6 +1,7 @@
 function setTimer() {
     let counter = 0;
     let remainTime = 60;
+    document.getElementById("timer").style.display="block";
     let timer = document.getElementById("timer");
     timer.innerHTML = (convertSec(remainTime - counter));
     s = setInterval(function () {
@@ -17,9 +18,7 @@ function setTimer() {
         }
         
     }, 1000);
-
 }
-setTimer();
 
 function checkIfFinished() {
     Checked = 0;
@@ -92,7 +91,7 @@ function gameEnd(value) {
     clearInterval(this.s);
     document.getElementById("alertx").style.display = "block";
     document.getElementById("finish").innerHTML = `You ${value}  ${localStorage.getItem("name")}`;
-    document.getElementById("playAgin").addEventListener("click", function () { location.reload(); });
+    document.getElementById("playAgin").addEventListener("click", function () { location.reload(); flag=1;});
     document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
 
 }

@@ -3,7 +3,7 @@ let i = 0;
 let j = 0;
 
 function applyBorder(i, j) {
-    document.getElementById(`item-${i}-${j}`).style.border = "3px solid red";
+    document.getElementById(`item-${i}-${j}`).style.border = "3px solid #db3e39";
 }
 
 function deleteBorder(i, j) {
@@ -11,6 +11,21 @@ function deleteBorder(i, j) {
 }
 
 applyBorder(i, j);
+
+const emoji=String.fromCodePoint(0x1F604);
+
+function welcome() {
+    document.getElementById("welcome").innerHTML = `Welcome ya ${localStorage.getItem("name")} ${emoji}`;
+    document.getElementById("start").addEventListener("click", function() {
+        document.getElementById("welcomeAlert").style.display = "none";
+        setTimer(); 
+        });
+
+    document.getElementById("Home").addEventListener("click", function() {location.replace("../login.html"); });
+}
+welcome();
+
+
 
 document.onkeydown = function (event) {
     event = event || window.event;

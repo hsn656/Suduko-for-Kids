@@ -2,7 +2,7 @@ import { Item } from "./itemModule.js"
 
 let boardContainer = document.getElementById("boardContainer");
 let selectionContainer = document.getElementById("selectionContainer");
-document.getElementById("userName").innerHTML=`welcom ${localStorage.getItem("name")}`;
+//document.getElementById("userName").innerHTML=`welcome ${localStorage.getItem("name")}`;
 
 let board = [new Array(), new Array(), new Array(), new Array()];
 
@@ -19,6 +19,7 @@ let items= getItems();
 
 // entry point
 init();
+
 
 
 //#region Functions
@@ -106,7 +107,6 @@ function generateRandoms(length) {
 
     return randomsArr;
 }
-
 
 
 //#endregion

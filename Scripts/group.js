@@ -18,3 +18,4 @@ document.getElementById("btn4").addEventListener("click", function () {
     localStorage.setItem("group", document.getElementById("btn4").value);
     location.assign("game.html");
 });
+
