@@ -75,7 +75,7 @@ document.addEventListener("keydown", function (event) {
     if (id < 5 && id > 0)
         selectNum(i, j, id);
     if (checkIfWin()){
-        gameEnd("succeeded");
+        gameEnd("win");
         updateHistory(counter++,true);
     }
 });
