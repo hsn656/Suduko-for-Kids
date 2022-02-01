@@ -68,7 +68,7 @@ function gameEnd(value) {
     clearInterval(timerInterval);
     document.getElementById("alertx").style.display = "block";
     document.getElementById("finish").innerHTML = `You ${value},  ${localStorage.getItem("name")}`;
-    document.getElementById("playAgin").addEventListener("click", function () { location.reload(); flag=1;});
+    document.getElementById("playAgin").addEventListener("click", function () { location.reload();});
     document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
 
 }
