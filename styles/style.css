@@ -3,7 +3,6 @@ body{
   background-image: url("../images/bg2.jpg");
   background-position: center;
   background-size: cover;
-  height: 990px;
   background-repeat: no-repeat;
 }
 
@@ -18,13 +17,14 @@ body{
   margin: 10px 20px;
   padding: 5px;
   color: white;
-  display: none;
+  /* display: none; */
 }
 
 .items{
   width: 40vw;
   margin: auto;
   padding: 20px;
+  text-align: left;
 }
 
 .items .line .item{ 
@@ -39,7 +39,7 @@ body{
   background-color: rgb(253, 228, 196);
   margin: 0px auto;
   border-radius: 28px;
-    border: solid 2px #e781a6;
+  border: solid 2px #e781a6;
 }
 
 .line{

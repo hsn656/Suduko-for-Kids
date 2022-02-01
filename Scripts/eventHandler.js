@@ -1,4 +1,5 @@
-let groupId=localStorage.getItem("group");
+let groupId = localStorage.getItem("group");
+let originalItems = getItems();
 let i = 0;
 let j = 0;
 
@@ -12,16 +13,16 @@ function deleteBorder(i, j) {
 
 applyBorder(i, j);
 
-const emoji=String.fromCodePoint(0x1F604);
+const emoji = String.fromCodePoint(0x1F604);
 
 function welcome() {
     document.getElementById("welcome").innerHTML = `Welcome ya ${localStorage.getItem("name")} ${emoji}`;
-    document.getElementById("start").addEventListener("click", function() {
+    document.getElementById("start").addEventListener("click", function () {
         document.getElementById("welcomeAlert").style.display = "none";
-        setTimer(); 
-        });
+        setTimer();
+    });
 
-    document.getElementById("Home").addEventListener("click", function() {location.replace("../login.html"); });
+    document.getElementById("Home").addEventListener("click", function () { location.replace("../login.html"); });
 }
 welcome();
 
@@ -59,28 +60,23 @@ document.onkeydown = function (event) {
 
 function selectNum(i, j, id) {
     let img = document.getElementById(`img-${i}-${j}`)
-    if (img.style.visibility == "hidden") {
+    if (!img.parentElement.classList.contains("initialized")) {
+        img.src = originalItems[id - 1].Src;
+        img.dataset.current = originalItems[id - 1].Id;
+        img.style.visibility = "";
 
-        document.getElementById(`item-${i}-${j}`).style.backgroundImage = `url(/images/Groups/${groupId}/${id}.png)`;
-        document.getElementById(`item-${i}-${j}`).style.backgroundSize = "cover";
     }
 }
-document.addEventListener("keydown",function (event) {
-    event = event || window.event;
-    switch (event.keyCode) {
-        case 49: //number 1
-            selectNum(i, j, 1);
-            break;
-        case 50: //number 2
-            selectNum(i, j, 2);
-            break;
-        case 51: //number 3
-            selectNum(i, j, 3);
-            break;
-        case 52: //number 4
-            selectNum(i, j, 4);
-            break;
 
+document.addEventListener("keydown", function (event) {
+    event = event || window.event;
+    let code = event.code;
+    let id = code[code.length - 1];
+    if (id < 5 && id > 0)
+        selectNum(i, j, id);
+    if (checkIfWin()){
+        gameEnd("succeeded");
+        updateHistory(counter++,true);
     }
 });
 

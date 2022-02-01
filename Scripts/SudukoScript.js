@@ -1,5 +1,3 @@
-import { Item } from "./itemModule.js"
-
 let boardContainer = document.getElementById("boardContainer");
 let selectionContainer = document.getElementById("selectionContainer");
 //document.getElementById("userName").innerHTML=`welcome ${localStorage.getItem("name")}`;
@@ -77,7 +75,7 @@ function renderBoard(board) {
         for (let j = 0; j < board[i].length; j++) {
             line.innerHTML += `
             <div id="item-${i}-${j}" class="item">
-                <img  id="img-${i}-${j}" src="${board[i][j].Src}" data-correctId="${board[i][j].Id}" >
+                <img  id="img-${i}-${j}" src="${board[i][j].Src}" data-current="0" data-correctId="${board[i][j].Id}" >
             </div>
             `
             
@@ -85,10 +83,11 @@ function renderBoard(board) {
             let div = document.getElementById(`item-${i}-${j}`);
 
             img.style.visibility = "hidden";
-            if (board[i][j].Id == randomsArr[i] + 1)
+            if (Math.random()>.6)
             {
                 img.style.visibility = "";
                 div.classList.add("initialized");
+                img.dataset.current=board[i][j].Id;
             }
                
         }

@@ -1,45 +1,42 @@
+let time = 60;
+let timer = document.getElementById("timer");
+let timerInterval;
+let counter=0;
+
 function setTimer() {
-    let counter = 0;
-    let remainTime = 60;
-    document.getElementById("timer").style.display="block";
-    let timer = document.getElementById("timer");
-    timer.innerHTML = (convertSec(remainTime - counter));
-    s = setInterval(function () {
-        counter++;
-        timer.innerHTML = (convertSec(remainTime - counter));
-        if (counter == remainTime) {
-            gameEnd("Lost");
-        }
-        else if (checkIfFinished() == `fall` && checkIfWin() == `winer`) {
-            gameEnd("Win");
-            updateHistory(counter,true);
+    console.log(111);
+    timer.innerHTML = convertToSec(time--);
+    timerInterval = setInterval(() => {
+        if (time>-1) {
+            timer.innerHTML = convertToSec(time--);
+            updateHistory(counter++,false);
         }else{
-            updateHistory(counter,false);
+            gameEnd("failed");
         }
-        
-    }, 1000);
+    }, 1000)
 }
 
-function checkIfFinished() {
-    Checked = 0;
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (document.getElementById(`img-${i}-${j}`).style.visibility == "hidden") {
-                if (document.getElementById(`item-${i}-${j}`).style.backgroundImage != "")
-                    Checked++;
-            }
 
-        }
-    }
-    if (Checked == 12) {
-        return `fall`;
-    }
+// function checkIfFinished() {
+//     Checked = 0;
+//     for (let i = 0; i < 4; i++) {
+//         for (let j = 0; j < 4; j++) {
+//             if (document.getElementById(`img-${i}-${j}`).style.visibility == "hidden") {
+//                 if (document.getElementById(`item-${i}-${j}`).style.backgroundImage != "")
+//                     Checked++;
+//             }
 
-}
+//         }
+//     }
+//     if (Checked == 12) {
+//         return `fall`;
+//     }
 
-function convertSec(time) {
+// }
 
-    time = Math.round(time)
+function convertToSec(time) {
+
+    time = Math.floor(time)
     let minutes = Math.floor(time / 60)
     let seconds = time - minutes * 60
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -48,47 +45,27 @@ function convertSec(time) {
 }
 
 
-function checkIfWin() {
-    let rowCounter = 0;
-    let colCounter = 0;
-
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-
-            for (let k = j + 1; k < 4; k++) {
-                currentRowItem = selectCell(i, k);
-                if (selectCell(i, j) == currentRowItem) {
-                    rowCounter++;
-                }
-            }
-            for (let k = i + 1; k < 4; k++) {
-                currentColItem = selectCell(k, j);
-                if (selectCell(i, j) == currentColItem) {
-                    colCounter++;
-                }
-
-
-            }
-        }
+function checkIfWin(){
+    let arr=document.querySelectorAll("[data-current]");
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i].dataset.current!=arr[i].dataset.correctid)
+            return false
     }
-    if (rowCounter == 0 && colCounter == 0)
-        return `winer`;
-    else
-        return `loser`;
-
+    return true;
 }
 
-function selectCell(i, j) {
-    if (document.getElementById(`img-${i}-${j}`).style.visibility == "")
-        return document.getElementById(`img-${i}-${j}`).src.slice(21);
-    else if (document.getElementById(`item-${i}-${j}`).style.backgroundImage != "")
-        return document.getElementById(`item-${i}-${j}`).style.backgroundImage.slice(5, -2);
 
-}
+// function selectCell(i, j) {
+//     if (document.getElementById(`img-${i}-${j}`).style.visibility == "")
+//         return document.getElementById(`img-${i}-${j}`).src.slice(21);
+//     else if (document.getElementById(`item-${i}-${j}`).style.backgroundImage != "")
+//         return document.getElementById(`item-${i}-${j}`).style.backgroundImage.slice(5, -2);
+
+// }
 
 function gameEnd(value) {
 
-    clearInterval(this.s);
+    clearInterval(timerInterval);
     document.getElementById("alertx").style.display = "block";
     document.getElementById("finish").innerHTML = `You ${value},  ${localStorage.getItem("name")}`;
     document.getElementById("playAgin").addEventListener("click", function () { location.reload(); flag=1;});
