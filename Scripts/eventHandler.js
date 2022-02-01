@@ -34,25 +34,25 @@ document.onkeydown = function (event) {
         case 37: //left
             deleteBorder(i, j);
             j--;
-            if (j == -1) j = 3;
+            if (j == -1) j = originalItems.length-1;
             applyBorder(i, j);
             break;
         case 39: //right      
             deleteBorder(i, j);
             j++;
-            if (j == 4) j = 0;
+            if (j == originalItems.length) j = 0;
             applyBorder(i, j);
             break;
         case 38: //up
             deleteBorder(i, j);
             i--;
-            if (i == -1) i = 3;
+            if (i == -1) i = originalItems.length-1;
             applyBorder(i, j);
             break;
         case 40: //down 
             deleteBorder(i, j);
             i++;
-            if (i == 4) i = 0;
+            if (i == originalItems.length) i = 0;
             applyBorder(i, j);
             break;
     }
@@ -72,7 +72,7 @@ document.addEventListener("keydown", function (event) {
     event = event || window.event;
     let code = event.code;
     let id = code[code.length - 1];
-    if (id < 5 && id > 0)
+    if (id < originalItems.length+1 && id > 0)
         selectNum(i, j, id);
     if (checkIfWin()){
         gameEnd("win");

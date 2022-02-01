@@ -1,19 +1,43 @@
 let boardContainer = document.getElementById("boardContainer");
 let selectionContainer = document.getElementById("selectionContainer");
-//document.getElementById("userName").innerHTML=`welcome ${localStorage.getItem("name")}`;
+// document.getElementById("userName").innerHTML=`welcome ${localStorage.getItem("name")}`;
 
-let board = [new Array(), new Array(), new Array(), new Array()];
+
 
 let easySudukoBuilder = [[0, 1, 2, 3],
 [2, 3, 1, 0],
 [1, 0, 3, 2],
 [3, 2, 0, 1]];
 
-let storedGroup=localStorage.getItem('group');
+let storedGroup = localStorage.getItem('group');
+
+
+//#region variables for test
+let hardSudukoBuilder = [
+    [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    [3, 4, 5, 6, 7, 8, 0, 1, 2],
+    [6, 7, 8, 0, 1, 2, 3, 4, 5],
+    [1, 2, 0, 4, 5, 3, 7, 8, 6],
+    [4, 5, 3, 7, 8, 6, 1, 2, 0],
+    [7, 8, 6, 1, 2, 0, 4, 5, 3],
+    [2, 0, 1, 5, 3, 4, 8, 6, 7],
+    [5, 3, 4, 8, 6, 7, 2, 1, 0],
+    [8, 6, 7, 2, 1, 0, 5, 3, 4]
+];
+let level = localStorage.level;
+let itemsLength = level == "level2" ? 9 : 4;
+let builder = level == "level2" ? hardSudukoBuilder : easySudukoBuilder;
+storedGroup = level=="level2"?5:storedGroup;
+let board = [];
+for (let i = 0; i < itemsLength; i++) {
+    board.push([]);
+}
+//#endregion
 
 
 
-let items= getItems();
+let items = getItems();
+
 
 // entry point
 init();
@@ -22,19 +46,22 @@ init();
 
 //#region Functions
 
-function getItems(){
-    let items=[];
-    for (let i = 1; i < 5; i++){
-        items.push(new Item(i,storedGroup))
+function getItems() {
+    let items = [];
+    for (let i = 1; i < itemsLength + 1; i++) {
+        items.push(new Item(i, storedGroup))
     }
     return items;
 }
 
 function init() {
-
     renderItems();
-    let board = generateBoard();
-    renderBoard(board);
+    board = generateBoard();
+    console.log(board);
+    if (items.length === 9)
+        renderBoardTwo(board);
+    else
+        renderBoardOne(board);
 }
 
 function renderItems() {
@@ -53,9 +80,9 @@ function renderItems() {
 
 function generateBoard() {
     shuffle(items);
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            board[i][j] = items[easySudukoBuilder[i][j]];
+    for (let i = 0; i < items.length; i++) {
+        for (let j = 0; j < items.length; j++) {
+            board[i][j] = items[builder[i][j]];
         }
     }
     return board;
@@ -65,8 +92,36 @@ function shuffle(array) {
     return array.sort((a, b) => 0.5 - Math.random())
 }
 
-function renderBoard(board) {
+
+function renderBoardOne(board) {
     let randomsArr = generateRandoms(4);
+    for (let i = 0; i < board.length; i++) {
+        boardContainer.innerHTML += `<div id="line-${i}" class="line">`;
+        let line = document.getElementById(`line-${i}`);
+
+        for (let j = 0; j < board[i].length; j++) {
+            line.innerHTML += `
+            <div id="item-${i}-${j}" class="item">
+                <img  id="img-${i}-${j}" src="${board[i][j].Src}" data-current="0" data-correctId="${board[i][j].Id}" >
+            </div>
+            `
+
+            let img = document.getElementById(`img-${i}-${j}`);
+            let div = document.getElementById(`item-${i}-${j}`);
+
+            img.style.visibility = "hidden";
+            if (Math.random() > .6) {
+                img.style.visibility = "";
+                div.classList.add("initialized");
+                img.dataset.current = board[i][j].Id;
+            }
+
+        }
+    }
+}
+
+function renderBoardTwo(board) {
+    let randomsArr = generateRandoms(items.length);
 
     for (let i = 0; i < board.length; i++) {
         boardContainer.innerHTML += `<div id="line-${i}" class="line">`;
@@ -78,18 +133,24 @@ function renderBoard(board) {
                 <img  id="img-${i}-${j}" src="${board[i][j].Src}" data-current="0" data-correctId="${board[i][j].Id}" >
             </div>
             `
-            
+
             let img = document.getElementById(`img-${i}-${j}`);
             let div = document.getElementById(`item-${i}-${j}`);
 
             img.style.visibility = "hidden";
-            if (Math.random()>.6)
-            {
+            if (Math.random() > .1) {
                 img.style.visibility = "";
                 div.classList.add("initialized");
-                img.dataset.current=board[i][j].Id;
+                img.dataset.current = board[i][j].Id;
             }
-               
+
+            //to make borders for 9x9
+            if ((i + 1) % 3 == 0 && i != items.length - 1)
+                div.classList.add("border-bottom")
+
+            if ((j + 1) % 3 == 0 && j != items.length - 1)
+                div.classList.add("border-right")
+
         }
     }
 }

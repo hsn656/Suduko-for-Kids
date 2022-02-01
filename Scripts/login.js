@@ -11,10 +11,14 @@ document.getElementById("login").addEventListener("click", function () {
     }
     else {
         document.getElementById("nameerror").style.display = "none";
-        location.assign("groupPage.html");
+        localStorage.setItem("name", document.getElementById("name").value);
+        localStorage.setItem("level", document.getElementById("level").value);
+        if (localStorage.level=="level1") {
+            location.assign("groupPage.html");
+        }else
+            location.assign("../game9x9.html");
     }
-    localStorage.setItem("name", document.getElementById("name").value);
-    localStorage.setItem("level", document.getElementById("level").value);
+
 
     
 });
