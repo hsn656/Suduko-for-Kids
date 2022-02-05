@@ -2,12 +2,12 @@ window.addEventListener("load", function () {
     document.getElementById("name").focus();
 });
 
-document.getElementById("login").addEventListener("click", function () {
-        
+ function login () {
+        localStorage.playAgin="false";
     if (document.getElementById("name").value=="") {
         document.getElementById("nameerror").style.display = "block";
-        this.focus();
-        this.select();
+        document.getElementById("name").focus();
+       // document.getElementById("name").select();
     }
     else {
         document.getElementById("nameerror").style.display = "none";
@@ -17,8 +17,11 @@ document.getElementById("login").addEventListener("click", function () {
             location.assign("groupPage.html");
         }else
             location.assign("../game9x9.html");
-    }
-
-
-    
+    } 
+}
+document.getElementById("login").addEventListener("click",login)
+window.addEventListener("keydown", function (event) {
+    if(event.code==='Enter'){
+        login();
+    } 
 });

@@ -24,7 +24,14 @@ function welcome() {
 
     document.getElementById("Home").addEventListener("click", function () { location.replace("../login.html"); });
 }
-welcome();
+
+    if(localStorage.playAgin=="true"){
+        document.getElementById("welcomeAlert").style.display = "none";
+        setTimer();
+    }
+   
+    welcome();
+
 
 
 

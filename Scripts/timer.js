@@ -61,13 +61,13 @@ function checkIfWin(){
 //         return document.getElementById(`item-${i}-${j}`).style.backgroundImage.slice(5, -2);
 
 // }
-
+sessionStorage.setItem("playAgin","false");
 function gameEnd(value) {
 
     clearInterval(timerInterval);
     document.getElementById("alertx").style.display = "block";
     document.getElementById("finish").innerHTML = `You ${value},  ${localStorage.getItem("name")}`;
-    document.getElementById("playAgin").addEventListener("click", function () { location.reload();});
+    document.getElementById("playAgin").addEventListener("click", function () {localStorage.setItem("playAgin","true");location.reload();});
     document.getElementById("goHome").addEventListener("click", function () { location.replace("../login.html"); });
 
 }
