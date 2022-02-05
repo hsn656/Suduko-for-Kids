@@ -168,6 +168,21 @@ function generateRandoms(length) {
     return randomsArr;
 }
 
+let hintImg = 0;
+document.getElementById("hintBtn").addEventListener("click",function(){
+    if(hintImg<3)
+    {
+        document.querySelectorAll("[data-current = '0']")[hintImg].style.visibility='';
+        hintImg ++;
+    }
+    else
+    {
+        document.getElementById("hint_span").style.display='block';
+    }
+    
+
+});
+
 
 //#endregion
 
