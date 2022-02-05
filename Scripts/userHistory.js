@@ -1,10 +1,17 @@
 function GetUsersHistory() {
-    let result=JSON.parse((localStorage.getItem("history")));
-    return result?result:{};
+    let result = JSON.parse((localStorage.getItem("history")));
+    return result ? result : {};
 }
 
-function updateHistory(time,isWin) {
-    let usersHistory=GetUsersHistory();
+function userHistory() {
+    let userlogined = localStorage.getItem("name");
+    let IsWinResult = (GetUsersHistory()[userlogined])['isWin'];
+    let TimeResult = (GetUsersHistory()[userlogined])['time'];
+    return [IsWinResult , TimeResult] ;
+}
+
+function updateHistory(time, isWin) {
+    let usersHistory = GetUsersHistory();
     let name = localStorage.getItem("name");
     let level = localStorage.getItem("level");
 
@@ -12,15 +19,16 @@ function updateHistory(time,isWin) {
         name: name,
         level: level,
         isWin: isWin,
-        time:time
+        time: time
     };
 
     let string = JSON.stringify(usersHistory);
 
     localStorage.setItem("history", string);
+
 }
 
-function getCurrentHistory(){
+function getCurrentHistory() {
     let name = localStorage.getItem("name");
     return GetUsersHistory()[name]
 }

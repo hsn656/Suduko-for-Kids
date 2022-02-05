@@ -121,7 +121,7 @@ body{
     justify-content: center;
     align-items: center;
     width:500px;
-    height:250px;
+    height:320px;
     display: block;
 }
 
@@ -147,10 +147,21 @@ a{
   text-decoration: none;
   color: #f44336;
 }
-#finish, #welcome{
+#finish, #welcome {
 text-align: center;
 font-family: "Comic Sans MS";
 font-size:3em;
+font-weight: 1000;
+font-variant: small-caps;
+margin-bottom: 30px;
+margin-top:15px;
+}
+
+#gameHistory
+{
+  text-align: center;
+font-family: "Comic Sans MS";
+font-size:1.3em;
 font-weight: 1000;
 font-variant: small-caps;
 margin-bottom: 30px;

@@ -15,6 +15,7 @@ applyBorder(i, j);
 
 const emoji = String.fromCodePoint(0x1F604);
 
+
 function welcome() {
     document.getElementById("welcome").innerHTML = `Welcome ya ${localStorage.getItem("name")} ${emoji}`;
     document.getElementById("start").addEventListener("click", function () {
@@ -22,7 +23,20 @@ function welcome() {
         setTimer();
     });
 
+    winresult = userHistory()[0];
+    TimeResult= userHistory()[1];
+
+    if (winresult) {
+        document.getElementById("gameHistory").innerHTML = ` < you win in your last game in  ${TimeResult} secons >`;
+    }
+    else {
+        document.getElementById("gameHistory").innerHTML = ` < you lost in your last game >`;
+
+    }
     document.getElementById("Home").addEventListener("click", function () { location.replace("../login.html"); });
+
+    
+
 }
 
     if(localStorage.playAgin=="true"){
