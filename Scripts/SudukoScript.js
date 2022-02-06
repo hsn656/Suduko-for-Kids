@@ -27,7 +27,7 @@ let hardSudukoBuilder = [
 let level = localStorage.level;
 let itemsLength = level == "level2" ? 9 : 4;
 let builder = level == "level2" ? hardSudukoBuilder : easySudukoBuilder;
-storedGroup = level=="level2"?5:storedGroup;
+storedGroup = level == "level2" ? 5 : storedGroup;
 let board = [];
 for (let i = 0; i < itemsLength; i++) {
     board.push([]);
@@ -169,17 +169,32 @@ function generateRandoms(length) {
 }
 
 let hintImg = 0;
-document.getElementById("hintBtn").addEventListener("click",function(){
-    if(hintImg<3)
-    {
-        document.querySelectorAll("[data-current = '0']")[hintImg].style.visibility='';
-        hintImg ++;
+
+document.getElementById("hintBtn").addEventListener("click", function () {
+    if (hintImg < 3) {
+        let oldarr = document.querySelectorAll("[data-current ]");
+        newarr = [];
+        let counter = 0;
+        for (let i = 0; i < oldarr.length; i++) {
+            if (oldarr[i].dataset.current != '0' && oldarr[i].dataset.current != oldarr[i].dataset.correctid) {
+                newarr[counter] = oldarr[i];
+                counter++;
+            }
+        }
+
+        newarr[0].parentElement.classList.add("wrong");
+           
+        hintImg++;
     }
-    else
-    {
-        document.getElementById("hint_span").style.visibility='visible';
+
+    else {
+        document.getElementById("hint_span").style.visibility = 'visible';
     }
-    
+
+    setTimeout(() => {
+        newarr[0].parentElement.classList.remove("wrong");
+    }, 3000);
+
 
 });
 

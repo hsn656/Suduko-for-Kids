@@ -169,3 +169,13 @@ font-variant: small-caps;
 margin-bottom: 30px;
 margin-top:15px;
 }
+
+.wrong{
+  animation:wrongAnimation ;
+  animation-duration: 3s;
+}
+
+@keyframes wrongAnimation 
+{
+to {background-color: #f59999}
+}
