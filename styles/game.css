@@ -4,6 +4,7 @@ body{
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
 
@@ -18,20 +19,20 @@ body{
 }
 
 #hint_span
-{
-  
+{ 
   margin-left: 5px;
   font-size: 20px;
   color: #db3e39;
-  display: none;
+  visibility: hidden;
 }
+
 .data-container h2{
   background-color: #db3e39;
   margin: 10px 20px;
   padding: 5px;
   color: white;
-  width: 50px;
-  /* display: none; */
+  width: 70px;
+  text-align: center;
 }
 
 #hintBtn
@@ -44,7 +45,6 @@ body{
   font-family: 'Times New Roman';
   font-size: 20px;
   border-radius: 5px;
-
 }
 
 .items{
@@ -60,8 +60,8 @@ body{
   text-align: center;
 }
 
-
-.board{
+/* differ */
+/* .board{
   width: 40vw;
   background-color: rgb(253, 228, 196);
   margin: 0px auto;
@@ -87,7 +87,9 @@ body{
 .line img{
   width: 100px;
   height: 100px;
-}
+} */
+/* end differ */
+
 
 #alertx {
   padding: 20px;
@@ -115,14 +117,14 @@ body{
   margin-bottom: 15px;
   transform: translate(-50%,-50%);
   top:51%;
-    left:50%;
-    border-radius: 15px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    width:500px;
-    height:320px;
-    display: block;
+  left:50%;
+  border-radius: 15px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  width:500px;
+  height:320px;
+  display: block;
 }
 
 

@@ -1,0 +1,36 @@
+.board{
+    width: 550px;
+    padding-top: 1px;
+    background-color: rgb(253, 228, 196); 
+    margin: 0px auto;
+    border: solid 4px black
+  }
+  
+  .line{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .board .line .item{
+    margin: 0px;
+    outline: 2px solid #e781a6;
+    box-shadow: 3px 3px 8px 0px #e781a6;  
+  }
+
+  .border-right{
+    border-right: solid 4px black;
+  }
+
+  .border-bottom{
+    border-bottom: solid 4px black;
+  }
+    
+  .initialized{
+    background-color: #f8cddd;
+  }
+  
+  .line img{
+    width: 60px;
+    height: 60px;
+  }

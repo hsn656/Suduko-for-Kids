@@ -23,17 +23,21 @@ function welcome() {
         setTimer();
     });
 
-    winresult = userHistory()[0];
-    TimeResult= userHistory()[1];
+    document.getElementById("Home").addEventListener("click", function () { location.replace("../login.html"); });
+    
+    let userHistory=getCurrentHistory();
 
-    if (winresult) {
-        document.getElementById("gameHistory").innerHTML = ` < you win in your last game in  ${TimeResult} secons >`;
+    if(!userHistory){
+        document.getElementById("gameHistory").innerHTML = ` < this is your first time with us >`;
+        return;
+    }
+
+    if (userHistory.isWin) {
+        document.getElementById("gameHistory").innerHTML = ` < you win in your last game in  ${userHistory.time} seconds >`;
     }
     else {
         document.getElementById("gameHistory").innerHTML = ` < you lost in your last game >`;
-
     }
-    document.getElementById("Home").addEventListener("click", function () { location.replace("../login.html"); });
 
     
 

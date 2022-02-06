@@ -177,7 +177,7 @@ document.getElementById("hintBtn").addEventListener("click",function(){
     }
     else
     {
-        document.getElementById("hint_span").style.display='block';
+        document.getElementById("hint_span").style.visibility='visible';
     }
     
 

@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
         if (localStorage.level=="level1") {
             location.assign("groupPage.html");
         }else
-            location.assign("../game9x9.html");
+            location.assign("../game.html");
     } 
 }
 document.getElementById("login").addEventListener("click",login)
