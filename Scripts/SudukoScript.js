@@ -171,29 +171,34 @@ function generateRandoms(length) {
 let hintImg = 0;
 
 document.getElementById("hintBtn").addEventListener("click", function () {
-    if (hintImg < 3) {
+    if (hintImg < 3) 
+    {
         let oldarr = document.querySelectorAll("[data-current ]");
         newarr = [];
         let counter = 0;
-        for (let i = 0; i < oldarr.length; i++) {
+        for (let i = 0; i < oldarr.length; i++)
+        {
             if (oldarr[i].dataset.current != '0' && oldarr[i].dataset.current != oldarr[i].dataset.correctid) {
                 newarr[counter] = oldarr[i];
                 counter++;
             }
         }
+        if (newarr.length != 0) {
+            newarr[0].parentElement.classList.add("wrong");
+            hintImg++;
 
-        newarr[0].parentElement.classList.add("wrong");
-           
-        hintImg++;
+            setTimeout(() => {
+                newarr[0].parentElement.classList.remove("wrong");
+            }, 3000);
+        }
+
     }
-
-    else {
+    else 
+    {
         document.getElementById("hint_span").style.visibility = 'visible';
     }
 
-    setTimeout(() => {
-        newarr[0].parentElement.classList.remove("wrong");
-    }, 3000);
+    
 
 
 });
