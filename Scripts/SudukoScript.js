@@ -12,7 +12,6 @@ let easySudukoBuilder = [[0, 1, 2, 3],
 let storedGroup = localStorage.getItem('group');
 
 
-//#region variables for test
 let hardSudukoBuilder = [
     [0, 1, 2, 3, 4, 5, 6, 7, 8],
     [3, 4, 5, 6, 7, 8, 0, 1, 2],
@@ -32,7 +31,6 @@ let board = [];
 for (let i = 0; i < itemsLength; i++) {
     board.push([]);
 }
-//#endregion
 
 
 
@@ -57,7 +55,6 @@ function getItems() {
 function init() {
     renderItems();
     board = generateBoard();
-    console.log(board);
     if (items.length === 9)
         renderBoardTwo(board);
     else
@@ -92,7 +89,6 @@ function shuffle(array) {
     return array.sort((a, b) => 0.5 - Math.random())
 }
 
-
 function renderBoardOne(board) {
     let randomsArr = generateRandoms(4);
     for (let i = 0; i < board.length; i++) {
@@ -110,19 +106,28 @@ function renderBoardOne(board) {
             let div = document.getElementById(`item-${i}-${j}`);
 
             img.style.visibility = "hidden";
-            if (Math.random() > .6) {
-                img.style.visibility = "";
-                div.classList.add("initialized");
-                img.dataset.current = board[i][j].Id;
-            }
+            // if (Math.random() > .6) {
+            //     img.style.visibility = "";
+            //     div.classList.add("initialized");
+            //     img.dataset.current = board[i][j].Id;
+            // }
+        }
+
+        let random=randomsArr.pop();
+        randowShow(random,i);
 
         }
-    }
+}
+
+function randowShow(random,index){
+    let img= document.querySelectorAll(`[data-correctid='${random+1}']`)[index];
+    img.style.visibility = "";
+    img.parentElement.classList.add("initialized")
+    img.dataset.current=random+1;
 }
 
 function renderBoardTwo(board) {
     let randomsArr = generateRandoms(items.length);
-
     for (let i = 0; i < board.length; i++) {
         boardContainer.innerHTML += `<div id="line-${i}" class="line">`;
         let line = document.getElementById(`line-${i}`);
@@ -138,20 +143,22 @@ function renderBoardTwo(board) {
             let div = document.getElementById(`item-${i}-${j}`);
 
             img.style.visibility = "hidden";
-            if (Math.random() > .1) {
-                img.style.visibility = "";
-                div.classList.add("initialized");
-                img.dataset.current = board[i][j].Id;
-            }
+            // if (Math.random() > .1) {
+            //     img.style.visibility = "";
+            //     div.classList.add("initialized");
+            //     img.dataset.current = board[i][j].Id;
+            // }
 
             //to make borders for 9x9
             if ((i + 1) % 3 == 0 && i != items.length - 1)
                 div.classList.add("border-bottom")
 
             if ((j + 1) % 3 == 0 && j != items.length - 1)
-                div.classList.add("border-right")
-
+                div.classList.add("border-right")          
         }
+        let random=randomsArr.pop();
+        randowShow(random,i);
+
     }
 }
 
