@@ -36,7 +36,7 @@ function welcome() {
         document.getElementById("gameHistory").innerHTML = ` < you won in your last game in  ${userHistory.time} seconds >`;
     }
     else {
-        document.getElementById("gameHistory").innerHTML = ` < you lost in your last game,wish you good luck >`;
+        document.getElementById("gameHistory").innerHTML = ` < you lost in your last game, good luck >`;
     }
 
     
