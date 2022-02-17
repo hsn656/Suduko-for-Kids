@@ -33,10 +33,10 @@ function welcome() {
     }
 
     if (userHistory.isWin) {
-        document.getElementById("gameHistory").innerHTML = ` < you win in your last game in  ${userHistory.time} seconds >`;
+        document.getElementById("gameHistory").innerHTML = ` < you won in your last game in  ${userHistory.time} seconds >`;
     }
     else {
-        document.getElementById("gameHistory").innerHTML = ` < you lost in your last game >`;
+        document.getElementById("gameHistory").innerHTML = ` < you lost in your last game,wish you good luck >`;
     }
 
     
@@ -100,7 +100,7 @@ document.addEventListener("keydown", function (event) {
     if (id < originalItems.length+1 && id > 0)
         selectNum(i, j, id);
     if (checkIfWin()){
-        gameEnd("win");
+        gameEnd("won");
         updateHistory(counter++,true);
     }
 });
