@@ -4,24 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/game.css" />
+    <script src="./Scripts/redirectToLogin.js"></script>
+    <script src="./Scripts/gameDynamicStyle.js"></script>
     <title>Suduko Game</title>
   </head>
+
   <body>
-    
     <div class="data-container">
-      <h2 id="userName" class="user-name" ></h2>
-      <h2 id="timer">00:00</h2>
+      <!--<h2 id="userName" class="user-name"></h2>-->
+      <h2 id="timer">0:00</h2>
+      <input id="hintBtn" type="button" value="Hint" />
+      <span id="hint_span">you can't get any more hints</span>
+      <!-- <h2 id="timeOver">Time Over</h2> -->
     </div>
 
-    <div  id="selectionContainer" class="items">
+    <div id="selectionContainer" class="items"></div>
+
+    <div id="boardContainer" class="board"></div>
+    <div id="alertx">
+      <p id="finish"><strong>Game Over</strong></p>
+
+      <button id="playAgin" class="bt">Play Again</button>
+      <button id="goHome" class="bt">Go to Home Page</button>
     </div>
 
-    <div id="boardContainer" class="board">
-
+    <div id="welcomeAlert">
+      <p id="welcome"><strong>welcome</strong></p>
+      <p id="gameHistory"><strong></strong></p>
+      <button id="start" class="bt">Play</button>
+      <button id="Home" class="bt">Home Page</button>
     </div>
-    <script src="./Scripts/SudukoScript.js" type="module" ></script>
-    <script src="./Scripts/eventHandler.js" type="module" ></script>
 
+    <script src="./Scripts/itemModule.js"></script>
+    <script src="./Scripts/SudukoScript.js"></script>
+    <script src="./Scripts/timer.js"></script>
+    <script src="./Scripts/userHistory.js"></script>
+    <script src="./Scripts/eventHandler.js"></script>
   </body>
 </html>

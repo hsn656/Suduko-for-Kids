@@ -1,0 +1,32 @@
+.board{
+    width: 40vw;
+    background-color: rgb(253, 228, 196);
+    margin: 0px auto;
+    border-radius: 28px;
+    border: solid 2px #e781a6;
+  }
+  
+  .line{
+    display: flex;
+  }
+  
+  .board .line .item{
+    margin: 10px auto;
+    border: 2px solid #e781a6;
+      border-radius: 28px;
+      box-shadow: 3px 3px 8px 0px #e781a6;
+  }
+    
+  .initialized{
+    background-color: #f8cddd;
+  }
+  
+  
+
+
+
+  .line img{
+    width: 100px;
+    height: 100px;
+  }
+  

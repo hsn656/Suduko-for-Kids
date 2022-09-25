@@ -1,25 +1,27 @@
-// let userName = document.getElementById("name").value;
-// let userLevel = document.getElementById("level").value;
-
 window.addEventListener("load", function () {
     document.getElementById("name").focus();
-    document.getElementById("level").addEventListener("change",function(){
-    localStorage.setItem("level", document.getElementById("level").value);
-    });
-
 });
 
-document.getElementById("login").addEventListener("click", function () {
-        
+ function login () {
+        localStorage.playAgin="false";
     if (document.getElementById("name").value=="") {
         document.getElementById("nameerror").style.display = "block";
-        this.focus();
-        this.select();
+        document.getElementById("name").focus();
+       // document.getElementById("name").select();
     }
     else {
         document.getElementById("nameerror").style.display = "none";
-    }
-    localStorage.setItem("name", document.getElementById("name").value);
-
-    //location.assign("");
+        localStorage.setItem("name", document.getElementById("name").value);
+        localStorage.setItem("level", document.getElementById("level").value);
+        if (localStorage.level=="level1") {
+            location.assign("groupPage.html");
+        }else
+            location.assign("../game.html");
+    } 
+}
+document.getElementById("login").addEventListener("click",login)
+window.addEventListener("keydown", function (event) {
+    if(event.code==='Enter'){
+        login();
+    } 
 });
