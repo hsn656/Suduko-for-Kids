@@ -1,0 +1,49 @@
+.mainContainer{
+    margin: 0px;
+    display: flex;
+    height:130px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.logoContainer{
+    display: flex;
+    width: 346px;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 80px;
+}
+#policelogo{
+    width:80px;
+    height:80px;
+}
+#healthlogo{
+    margin-bottom: 3px;
+    width:70px;
+    height:85px;
+}
+#mainHeader{
+    display: inline;
+    margin-right: 24px;
+    font-size: 28px;
+}
+#vertical{
+    border: 1px solid lightgray;
+    height: 85px;
+    margin: 8px 0px;
+}
+.searchContainer{
+    display: flex;
+    width: 375px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 60px
+}
+#settingIcon{
+    width:40px;
+    height:40px;
+    margin-top: 5px;
+}

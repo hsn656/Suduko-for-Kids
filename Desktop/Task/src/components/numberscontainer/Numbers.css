@@ -1,0 +1,29 @@
+.wrapper{
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    width: 385px;
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 5px 54px 5px 36px;
+}
+.numbers{
+    text-align: center;
+}
+.numbers h1{
+    margin-bottom: 0px;
+    font-size: 40px;
+    font-family: inherit;
+}
+.numbers p{
+    margin-top: -6px;
+    font-size:20px;
+}
+#statusIcon{
+    width: 75px;
+    height: 75px;
+    margin: 0px-8px -5px 5px;
+}

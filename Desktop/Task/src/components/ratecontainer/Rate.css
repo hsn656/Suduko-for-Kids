@@ -1,0 +1,30 @@
+.rate{
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    width: 580px;
+    height: 465px;
+    padding: 44px;
+}
+.rate h2{
+    text-align: center;
+    margin-top: 0px;
+}
+.maleAndFemale{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.male, .female{
+    width: 106px;
+    text-align: center;
+}
+.rateMaleParagraph{
+    margin-top: -197px;
+    font-size: 23px;
+}
+.rateFemaleParagraph{
+    margin-top: -101px;
+    font-size: 23px;
+}

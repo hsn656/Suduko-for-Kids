@@ -1,0 +1,29 @@
+.status{
+    flex: 5;
+    background-color:#f3f6f9;
+}
+.statusWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 45px 5px 0px 5px;
+    gap:33px;
+}
+.rateWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 45px 0px;
+}
+.rateWrapper hr{
+    border: 1px solid lightgray;
+    height: 300px;
+    margin: 8px 0px;
+}
+.dateAndStatus{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 7px;
+    gap:10px;
+}
